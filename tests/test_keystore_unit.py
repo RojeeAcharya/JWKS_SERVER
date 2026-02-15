@@ -4,10 +4,9 @@ import jwt
 
 from src.jwks_server.keystore import KeyStore
 from src.jwks_server.main import app
-
+ks = KeyStore()
 
 def test_keystore_generates_kid_and_expiry():
-    ks = KeyStore()
     now = int(time.time())
     rec = ks.generate_key(expires_at=now + 10)
     assert rec.kid
@@ -19,7 +18,6 @@ def test_keystore_generates_kid_and_expiry():
 
 
 def test_active_vs_expired_selection():
-    ks = KeyStore()
     now = int(time.time())
     active = ks.generate_key(expires_at=now + 100)
     expired = ks.generate_key(expires_at=now - 100)
@@ -34,7 +32,6 @@ def test_active_vs_expired_selection():
 
 
 def test_jwt_header_contains_kid():
-    ks = KeyStore()
     now = int(time.time())
     rec = ks.generate_key(expires_at=now + 100)
 
