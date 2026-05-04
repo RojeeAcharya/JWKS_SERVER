@@ -1,10 +1,6 @@
-cffi==2.0.0
-cryptography==46.0.3
-pycparser==2.23
-PyJWT==2.10.1
-setuptools==80.9.0
-wheel==0.45.1
-pytest==8.3.4
-requests==2.32.3
-pytest-cov==7.0.0
-coverage==7.13.1
+PyJWT>=2.0
+cryptography>=40.0
+argon2-cffi>=21.0
+pytest
+pytest-cov
+requests
